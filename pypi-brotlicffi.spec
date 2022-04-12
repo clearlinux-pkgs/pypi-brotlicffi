@@ -4,7 +4,7 @@
 #
 Name     : pypi-brotlicffi
 Version  : 1.0.9.2
-Release  : 2
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
 Summary  : Python CFFI bindings to the Brotli library
@@ -15,7 +15,6 @@ Requires: pypi-brotlicffi-python = %{version}-%{release}
 Requires: pypi-brotlicffi-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(cffi)
-BuildRequires : pypi(enum34)
 
 %description
 ==========
@@ -43,7 +42,6 @@ Group: Default
 Requires: python3-core
 Provides: pypi(brotlicffi)
 Requires: pypi(cffi)
-Requires: pypi(enum34)
 
 %description python3
 python3 components for the pypi-brotlicffi package.
@@ -58,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638626268
+export SOURCE_DATE_EPOCH=1649722813
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
