@@ -4,7 +4,7 @@
 #
 Name     : pypi-brotlicffi
 Version  : 1.0.9.2
-Release  : 12
+Release  : 13
 URL      : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
 Summary  : Python CFFI bindings to the Brotli library
@@ -17,6 +17,9 @@ Requires: pypi-brotlicffi-python = %{version}-%{release}
 Requires: pypi-brotlicffi-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(cffi)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ==========
@@ -80,15 +83,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656362566
+export SOURCE_DATE_EPOCH=1672260869
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -105,8 +108,8 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-brotlicffi
-cp %{_builddir}/brotlicffi-1.0.9.2/LICENSE %{buildroot}/usr/share/package-licenses/pypi-brotlicffi/bae61d713726c8dbf4b43a6bf0ddeb04e1f927cd
-cp %{_builddir}/brotlicffi-1.0.9.2/libbrotli/LICENSE %{buildroot}/usr/share/package-licenses/pypi-brotlicffi/c045813a6c514f2d30d60a07c6aaf3603850e608
+cp %{_builddir}/brotlicffi-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-brotlicffi/bae61d713726c8dbf4b43a6bf0ddeb04e1f927cd || :
+cp %{_builddir}/brotlicffi-%{version}/libbrotli/LICENSE %{buildroot}/usr/share/package-licenses/pypi-brotlicffi/c045813a6c514f2d30d60a07c6aaf3603850e608 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
