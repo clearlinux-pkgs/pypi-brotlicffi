@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-brotlicffi
-Version  : 1.0.9.2
-Release  : 16
-URL      : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/d3/d8/6acbb65e350213ad6bd96180593fad0a269a3baa845c67fed21adee3959d/brotlicffi-1.0.9.2.tar.gz
+Version  : 1.1.0.0
+Release  : 17
+URL      : https://files.pythonhosted.org/packages/95/9d/70caa61192f570fcf0352766331b735afa931b4c6bc9a348a0925cc13288/brotlicffi-1.1.0.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/95/9d/70caa61192f570fcf0352766331b735afa931b4c6bc9a348a0925cc13288/brotlicffi-1.1.0.0.tar.gz
 Summary  : Python CFFI bindings to the Brotli library
 Group    : Development/Tools
 License  : MIT
@@ -21,7 +21,11 @@ BuildRequires : pypi(cffi)
 %define debug_package %{nil}
 
 %description
+BrotliCFFI
 ==========
+.. image:: https://img.shields.io/pypi/v/brotlicffi
+:alt: Version
+:target: https://pypi.org/project/brotlicffi
 
 %package license
 Summary: license components for the pypi-brotlicffi package.
@@ -52,10 +56,10 @@ python3 components for the pypi-brotlicffi package.
 
 
 %prep
-%setup -q -n brotlicffi-1.0.9.2
-cd %{_builddir}/brotlicffi-1.0.9.2
+%setup -q -n brotlicffi-1.1.0.0
+cd %{_builddir}/brotlicffi-1.1.0.0
 pushd ..
-cp -a brotlicffi-1.0.9.2 buildavx2
+cp -a brotlicffi-1.1.0.0 buildavx2
 popd
 
 %build
@@ -63,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685562037
+export SOURCE_DATE_EPOCH=1694790681
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
