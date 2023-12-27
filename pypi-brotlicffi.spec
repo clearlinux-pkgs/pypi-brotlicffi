@@ -5,7 +5,7 @@
 #
 Name     : pypi-brotlicffi
 Version  : 1.1.0.0
-Release  : 18
+Release  : 19
 URL      : https://files.pythonhosted.org/packages/95/9d/70caa61192f570fcf0352766331b735afa931b4c6bc9a348a0925cc13288/brotlicffi-1.1.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/95/9d/70caa61192f570fcf0352766331b735afa931b4c6bc9a348a0925cc13288/brotlicffi-1.1.0.0.tar.gz
 Summary  : Python CFFI bindings to the Brotli library
